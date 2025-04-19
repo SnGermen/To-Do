@@ -1,12 +1,14 @@
-<template> 
+<template>
   <div class="task_list">
     <div v-for="(item, index) in tasks" :key="index" class="addedTask">
-      <div class="checkbox" :class="{ checked: isChecked }" @click="toggleCheckbox"></div>
-      <span class="task_text">{{ item }}</span>
+      <div
+        class="checkbox"
+        :class="[item.isChecked ? `checked-${index}` : '']"
+        @click="toggleCheckbox(index)"
+      ></div>
+      <span class="task_text">{{ item.text }}</span>
       <div class="block_button">
-        <button class="delete_button" @click="deleteTask(index)">
-          🗑
-        </button>
+        <button class="delete_button" @click="deleteTask(index)">🗑</button>
       </div>
     </div>
   </div>
@@ -17,22 +19,15 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "TaskDiv",
-  data() {
-    return {
-      isChecked: false,
-    };
-  },
-  methods: {
-    ...mapActions(["deleteTask"]),
-    toggleCheckbox() {
-      this.isChecked = !this.isChecked;
-    },
-  },
   computed: {
     ...mapGetters(["allTasks"]),
     tasks() {
       return this.allTasks;
     },
+    
+  },
+  methods: {
+    ...mapActions(["deleteTask", "toggleCheckbox"]),
   },
 };
 </script>
@@ -69,6 +64,7 @@ export default {
   word-break: break-word;
 }
 
+/* Чекбокс (по умолчанию) */
 .checkbox {
   width: 24px;
   height: 24px;
@@ -77,8 +73,10 @@ export default {
   margin-right: 10px;
   cursor: pointer;
   position: relative;
+  transition: border-color 0.3s ease;
 }
 
+/* Выделенный чекбокс */
 .checkbox.checked::before {
   content: "";
   width: 16px;
@@ -91,7 +89,20 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-/* Новый стиль кнопки */
+/* Альтернатива: если используешь checked-0, checked-1 и т.п. */
+.checkbox[class*="checked-"]::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: rgb(120, 140, 222);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Кнопка удаления */
 .delete_button {
   background: none;
   border: none;
@@ -115,4 +126,5 @@ export default {
 .delete_button:active {
   transform: scale(0.9);
 }
+
 </style>

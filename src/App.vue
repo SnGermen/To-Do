@@ -1,21 +1,17 @@
 <template>
   <div id="app" class="block">
     <nav class="navigations">
-      <router-link  to="/">Day</router-link>
-      <router-link  to="/important">Important</router-link>
-      <router-link  to="/planned">Planned</router-link>
-      <router-link  to="/tasks">Tasks</router-link>
+      <router-link to="/tasks" exact-active-class="active">📝 Tasks</router-link>
+      <router-link to="/" exact-active-class="active">📅 Day</router-link>
+      <router-link to="/important" exact-active-class="active">⭐ Important</router-link>
     </nav>
 
     <main class="main_content">
       <router-view />
     </main>
-
-    <div class='proposition'>
-      <p>proposition</p>
-    </div>
   </div>
 </template>
+
 
 <script>
 
@@ -27,38 +23,46 @@ export default {
 <style scoped>
 .block {
   display: grid;
-  grid-template-columns: 200px 1fr 300px; /* Левый, центральный и правый блок */
-  height: 100vh; /* Высота на весь экран */
-  
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+  background-color: #121212;
 }
 
-
-/* Левая колонка (например, меню) */
+/* Левое меню */
 .navigations {
-background-color: rgb(35,34,34);  
-padding: 20px;
+  background-color: #1e1e1e;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-
-}
-.navigations a{
-
-  text-decoration: none;
-    color: white;
-
+  gap: 15px;
+  border-right: 1px solid #2a2a2a;
 }
 
-/* Центральный контент */
-.main-content {
+.navigations a {
+  text-decoration: none;
+  color: #bbb;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navigations a:hover {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.navigations a.active {
+  background-color: #3949ab;
+  color: white;
+}
+
+/* Центральная часть */
+.main_content {
   overflow-y: auto;
-  padding: 20px;
-}
-
-/* Правая колонка (например, дополнительная информация) */
-.proposition {
-  background-color: rgb(38,39,38);
-  padding: 20px;
 }
 
 </style>

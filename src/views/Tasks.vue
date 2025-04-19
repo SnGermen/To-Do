@@ -1,17 +1,15 @@
 <template>
   <div class="block">
     <div class="header">
-      <h1>My day</h1>
-      <h2 class="date">{{ today }}</h2>
+      <h1>Tasks</h1>
     </div>
     
     <div class="content">
       <!-- Скрываем блок, если есть задачи -->
       <div v-if="tasks.length === 0" class="content_block">
-        <img src="/src/img/images.png" alt="Task Image">
         <div class="text">
-          <h2>Stay focused on your day</h2>
-          <p>Get things done with the "My Day" view — a list that refreshes every day.</p>
+          <h2>0</h2>
+          <p>No tasks yet – create one!</p>
         </div>
       </div>
 
@@ -39,9 +37,7 @@ export default {
     tasks() {
       return this.allTasks; // ✅ Делаем tasks доступным в шаблоне
     },
-    today() {
-      return new Date().toLocaleDateString("es-ES");
-    }
+
   }
 };
 </script>

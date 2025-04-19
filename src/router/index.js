@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Important from '@/views/Important.vue'
-import Planned from '@/views/Planned.vue'
 import Tasks from '@/views/Tasks.vue'
 import Day from '@/views/Day.vue'
 
@@ -16,11 +15,6 @@ const router = createRouter({
       path: '/important',
       name: 'Important',
       component: Important,
-    },
-    {
-      path: '/planned',
-      name: 'Planned',
-      component: Planned,
     },
     {
       path: '/tasks',

@@ -35,6 +35,7 @@ export default {
         this.addTask(this.task.trim()); // ✅ Передаем точно строку
         this.$emit("toggleTaskDiv", true); // Эмитим событие с состоянием
         this.task = ""; // ✅ Очищаем поле ввода
+
       }
     }
   }
@@ -71,7 +72,7 @@ export default {
   padding: 10px;
   border-radius: 8px;
   width: 100%;
-  max-width: 500px;
+  max-width: 850px;
 }
 
 
