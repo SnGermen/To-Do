@@ -1,29 +1,39 @@
-# Germen To Do
+# 📝 Germen To-Do
 
-This template should help get you started developing with Vue 3 in Vite.
+A clean, minimal, and local-first To-Do list app built with Vue 3.  
+**No sign-ups. No servers. All your tasks are saved directly in your browser.**
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Features
 
-## Customize configuration
+- ✅ Create, delete, and mark tasks as completed
+- ⭐ Favorite tasks (Important section)
+- 📅 Daily task view (Day section)
+- 💾 Persistent local storage using IndexedDB
+- ⚙️ Vuex for state management
+- 🔄 (Coming soon) Auto-clear daily tasks every day
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🛠️ Tech Stack
 
-```sh
-npm install
-```
+| Technology   | Purpose                         |
+|--------------|---------------------------------|
+| Vue 3        | Frontend framework              |
+| Vuex         | State management                |
+| Vue Router   | Routing/navigation              |
+| IndexedDB    | Local database for tasks        |
+| Vite         | Dev server & project bundler    |
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
-```
+## 📦 Setup Instructions
+1. Run the dev server:
+   `npm run dev`
+2. Clone the repository:
+```bash
+git clone https://github.com/your-username/GermenToDo.git
+cd GermenToDo
 
-### Compile and Minify for Production
 
-```sh
-npm run build
-```
