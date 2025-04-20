@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="block">
     <nav class="navigations">
-      <router-link to="/tasks" exact-active-class="active">📝 Tasks</router-link>
-      <router-link to="/" exact-active-class="active">📅 Day</router-link>
+      <router-link to="/" exact-active-class="active">📝 Tasks</router-link>
+      <router-link to="/day" exact-active-class="active">📅 Day</router-link>
       <router-link to="/important" exact-active-class="active">⭐ Important</router-link>
     </nav>
 
@@ -12,11 +12,12 @@
   </div>
 </template>
 
-
 <script>
-
 export default {
   name: 'App',
+  mounted() {
+    this.$store.dispatch("loadTasksFromDB");
+  }
 }
 </script>
 
@@ -28,7 +29,6 @@ export default {
   background-color: #121212;
 }
 
-/* Левое меню */
 .navigations {
   background-color: #1e1e1e;
   padding: 20px;
@@ -60,9 +60,17 @@ export default {
   color: white;
 }
 
-/* Центральная часть */
 .main_content {
   overflow-y: auto;
+  color: white;
 }
 
+@media (max-width: 600px) {
+  .block {
+    grid-template-columns: 1fr;
+  }
+  .navigations {
+    display: none;
+  }
+}
 </style>

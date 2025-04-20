@@ -8,6 +8,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'Tasks',
+      component: Tasks,
+    },
+    {
+      path: '/day',
       name: 'Day',
       component: Day, // home
     },
@@ -16,11 +21,7 @@ const router = createRouter({
       name: 'Important',
       component: Important,
     },
-    {
-      path: '/tasks',
-      name: 'Tasks',
-      component: Tasks,
-    },
+
 
   ],
 })
